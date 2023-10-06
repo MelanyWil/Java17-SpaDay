@@ -1,5 +1,6 @@
 package org.launchcode.controllers;
 
+import org.launchcode.data.UserData;
 import org.launchcode.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +26,9 @@ public class UserController {
             model.addAttribute("error", "Passwords do not match");
             return "/user/add";
         }
+        UserData.add(user);
         model.addAttribute("user", user);
+        model.addAttribute("users", UserData.getAll());
         return "/user/index";
 // add form submission handling code here
     }

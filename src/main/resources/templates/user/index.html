@@ -9,6 +9,9 @@
     <h3 th:text="'Welcome ' + ${user.username}">Welcome</h3>
     <a th:href="@{/}">Select Spa Services</a>
 
-
+    <h2>Users</h2>
+    <th:block th:each="someUser: ${users}">
+        <p th:text="${someUser.username}"></p>
+    </th:block>
 </body>
 </html>
